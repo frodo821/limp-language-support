@@ -28,5 +28,7 @@
       }
     ]
   },
-  "repository": "https://github.com/frodo821/limp-language-support"
+  "repository": "https://github.com/frodo821/limp-language-support",
+  "author": "frodo821",
+  "publisher": "me.frodo821"
 }
