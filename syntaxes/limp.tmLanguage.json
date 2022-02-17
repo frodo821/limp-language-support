@@ -10,6 +10,9 @@
 		},
 		{
 			"include": "#title"
+		},
+		{
+			"include": "#block-role-unparsed"
 		}
 	],
 	"repository": {
@@ -51,8 +54,43 @@
 		},
 		"block-role": {
 			"name": "entity.role.block",
-			"match": "(\\s*)(::)(\\*)?([a-zA-Z0-9_]+)(?:\\(((?:[^)]|\\\\\\))*)\\))?(~)",
-			"captures": {
+			"begin": "^([ ]*)(::)([a-zA-Z0-9_]+)(?:\\(((?:[^)]|\\\\\\))*)\\))?(~)",
+			"while": "^(?=\\1[ ]|\\s*$)",
+			"beginCaptures": {
+				"2": {
+					"name": "storage.type.limp.begin-role"
+				},
+				"3": {
+					"name": "entity.name.function.limp"
+				},
+				"4": {
+					"patterns": [
+						{
+							"include": "#attribute"
+						}
+					]
+				},
+				"5": {
+					"name": "keyword.operator.limp.begin-body"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#block-role"
+				},
+				{
+					"include": "#role"
+				},
+				{
+					"include": "#block-role-unparsed"
+				}
+			]
+		},
+		"block-role-unparsed": {
+			"name": "entity.role.block.unparsed",
+			"begin": "^([ ]*)(::)(\\*)([a-zA-Z0-9_]+)(?:\\(((?:[^)]|\\\\\\))*)\\))?(~)",
+			"while": "^(?=\\1[ ]|\\s*$)",
+			"beginCaptures": {
 				"2": {
 					"name": "storage.type.limp.begin-role"
 				},
@@ -73,14 +111,7 @@
 					"name": "keyword.operator.limp.begin-body"
 				}
 			},
-			"patterns": [
-				{
-					"include": "#block-role"
-				},
-				{
-					"include": "#role"
-				}
-			]
+			"patterns": []
 		},
 		"title": {
 			"name": "entity.name.section.limp.title",
