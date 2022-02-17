@@ -27,5 +27,6 @@
         "path": "./limp.code-snippets"
       }
     ]
-  }
+  },
+  "repository": "https://github.com/frodo821/limp-language-support"
 }
