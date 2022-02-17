@@ -1,148 +1,148 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "limp",
-	"patterns": [
-		{
-			"include": "#role"
-		},
-		{
-			"include": "#block-role"
-		},
-		{
-			"include": "#title"
-		},
-		{
-			"include": "#block-role-unparsed"
-		}
-	],
-	"repository": {
-		"role": {
-			"name": "entity.role.inline",
-			"begin": "(:)(\\*)?([a-zA-Z0-9_]+)(?:\\(((?:[^)]|\\\\\\))*)\\))?(:)",
-			"end": ";",
-			"beginCaptures": {
-				"1": {
-					"name": "storage.type.limp.begin-role"
-				},
-				"2": {
-					"name": "markup.quote.limp.unparsed"
-				},
-				"3": {
-					"name": "entity.name.function.limp"
-				},
-				"4": {
-					"patterns": [
-						{
-							"include": "#attribute"
-						}
-					]
-				},
-				"5": {
-					"name": "keyword.operator.limp.begin-text"
-				}
-			},
-			"endCaptures": {
-				"0": {
-					"name": "keyword.operator.limp.end-role"
-				}
-			},
-			"patterns": [
-				{
-					"include": "#role"
-				}
-			]
-		},
-		"block-role": {
-			"name": "entity.role.block",
-			"begin": "^([ ]*)(::)([a-zA-Z0-9_]+)(?:\\(((?:[^)]|\\\\\\))*)\\))?(~)",
-			"while": "^(?=\\1[ ]|\\s*$)",
-			"beginCaptures": {
-				"2": {
-					"name": "storage.type.limp.begin-role"
-				},
-				"3": {
-					"name": "entity.name.function.limp"
-				},
-				"4": {
-					"patterns": [
-						{
-							"include": "#attribute"
-						}
-					]
-				},
-				"5": {
-					"name": "keyword.operator.limp.begin-body"
-				}
-			},
-			"patterns": [
-				{
-					"include": "#block-role"
-				},
-				{
-					"include": "#role"
-				},
-				{
-					"include": "#block-role-unparsed"
-				}
-			]
-		},
-		"block-role-unparsed": {
-			"name": "entity.role.block.unparsed",
-			"begin": "^([ ]*)(::)(\\*)([a-zA-Z0-9_]+)(?:\\(((?:[^)]|\\\\\\))*)\\))?(~)",
-			"while": "^(?=\\1[ ]|\\s*$)",
-			"beginCaptures": {
-				"2": {
-					"name": "storage.type.limp.begin-role"
-				},
-				"3": {
-					"name": "markup.quote.limp.unparsed"
-				},
-				"4": {
-					"name": "entity.name.function.limp"
-				},
-				"5": {
-					"patterns": [
-						{
-							"include": "#attribute"
-						}
-					]
-				},
-				"6": {
-					"name": "keyword.operator.limp.begin-body"
-				}
-			},
-			"patterns": []
-		},
-		"title": {
-			"name": "entity.name.section.limp.title",
-			"match": "^\\s*([#*-=]{4,})\\s*$",
-			"captures": {
-				"0": {
-					"name": "markup.heading.limp.marker"
-				}
-			}
-		},
-		"attribute": {
-			"name": "entity.other.attribute-name",
-			"patterns": [
-				{
-					"match": "([^,=]+)=((?:[^,]|\\\\,)+)",
-					"name": "entity.other.attribute-name",
-					"captures": {
-						"1": {
-							"name": "variable.parameter.limp.key"
-						},
-						"2": {
-							"name": "string.unquoted.value"
-						}
-					}
-				},
-				{
-					"match": "(?:[^,=]|\\\\,)+",
-					"name": "string.unquoted.value"
-				}
-			]
-		}
-	},
-	"scopeName": "source.limp"
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "limp",
+  "patterns": [
+    {
+      "include": "#role"
+    },
+    {
+      "include": "#block-role"
+    },
+    {
+      "include": "#title"
+    },
+    {
+      "include": "#block-role-unparsed"
+    }
+  ],
+  "repository": {
+    "role": {
+      "name": "entity.role.inline",
+      "begin": "(:)(\\*)?([a-zA-Z0-9_]+)(?:\\(((?:[^)]|\\\\\\))*)\\))?(:)",
+      "end": ";",
+      "beginCaptures": {
+        "1": {
+          "name": "storage.type.limp.begin-role"
+        },
+        "2": {
+          "name": "markup.quote.limp.unparsed"
+        },
+        "3": {
+          "name": "entity.name.function.limp"
+        },
+        "4": {
+          "patterns": [
+            {
+              "include": "#attribute"
+            }
+          ]
+        },
+        "5": {
+          "name": "keyword.operator.limp.begin-text"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "keyword.operator.limp.end-role"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#role"
+        }
+      ]
+    },
+    "block-role": {
+      "name": "entity.role.block",
+      "begin": "^([ ]*)(::)([a-zA-Z0-9_]+)(?:\\(((?:[^)]|\\\\\\))*)\\))?(~)",
+      "while": "^(?=\\1[ ]|\\s*$)",
+      "beginCaptures": {
+        "2": {
+          "name": "storage.type.limp.begin-role"
+        },
+        "3": {
+          "name": "entity.name.function.limp"
+        },
+        "4": {
+          "patterns": [
+            {
+              "include": "#attribute"
+            }
+          ]
+        },
+        "5": {
+          "name": "keyword.operator.limp.begin-body"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#block-role"
+        },
+        {
+          "include": "#role"
+        },
+        {
+          "include": "#block-role-unparsed"
+        }
+      ]
+    },
+    "block-role-unparsed": {
+      "name": "entity.role.block.unparsed",
+      "begin": "^([ ]*)(::)(\\*)([a-zA-Z0-9_]+)(?:\\(((?:[^)]|\\\\\\))*)\\))?(~)",
+      "while": "^(?=\\1[ ]|\\s*$)",
+      "beginCaptures": {
+        "2": {
+          "name": "storage.type.limp.begin-role"
+        },
+        "3": {
+          "name": "markup.quote.limp.unparsed"
+        },
+        "4": {
+          "name": "entity.name.function.limp"
+        },
+        "5": {
+          "patterns": [
+            {
+              "include": "#attribute"
+            }
+          ]
+        },
+        "6": {
+          "name": "keyword.operator.limp.begin-body"
+        }
+      },
+      "patterns": []
+    },
+    "title": {
+      "name": "entity.name.section.limp.title",
+      "match": "^\\s*([#*-=]{4,})\\s*$",
+      "captures": {
+        "0": {
+          "name": "markup.heading.limp.marker"
+        }
+      }
+    },
+    "attribute": {
+      "name": "entity.other.attribute-name",
+      "patterns": [
+        {
+          "match": "([^,=]+)=((?:[^,]|\\\\,)+)",
+          "name": "entity.other.attribute-name",
+          "captures": {
+            "1": {
+              "name": "variable.parameter.limp.key"
+            },
+            "2": {
+              "name": "string.unquoted.value"
+            }
+          }
+        },
+        {
+          "match": "(?:[^,=]|\\\\,)+",
+          "name": "string.unquoted.value"
+        }
+      ]
+    }
+  },
+  "scopeName": "source.limp"
 }
