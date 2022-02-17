@@ -1,0 +1,27 @@
+{
+  "!=": {
+    "prefix": "!=",
+    "body": "${1:title}\n${1/./=/g}",
+    "description": "heading (h1)"
+  },
+  "!-": {
+    "prefix": "!-",
+    "body": "${1:title}\n${1/./-/g}",
+    "description": "heading (h2)"
+  },
+  "!*": {
+    "body": "${1:title}\n${1/./*/g}",
+    "prefix": "!*",
+    "description": "heading (h3)"
+  },
+  "!#": {
+    "body": "${1:title}\n${1/./#/g}",
+    "prefix": "!#",
+    "description": "heading (h4)"
+  },
+  ":*": {
+    "body": ":*${1:role}:${2:content};",
+    "prefix": ":*",
+    "description": "unparsed inline role"
+  },
+}

@@ -1,0 +1,31 @@
+{
+    "name": "limp-language-support",
+    "displayName": "Limp Language Support",
+    "description": "Language support for limp",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.22.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "doc-limp",
+            "aliases": ["limp", "doc-limp"],
+            "extensions": [".limp", ".mp"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "doc-limp",
+            "scopeName": "source.limp",
+            "path": "./syntaxes/limp.tmLanguage.json"
+        }],
+        "snippets": [
+            {
+                "language": "doc-limp",
+                "path": "./limp.code-snippets"
+            }
+        ]
+    }
+}
